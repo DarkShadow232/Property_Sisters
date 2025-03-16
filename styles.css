@@ -1129,3 +1129,344 @@ footer::before {
         font-size: 24px;
     }
 }
+
+/* Authentication Pages Styles */
+.auth-section {
+    padding: 80px 0;
+    background-color: var(--secondary-color);
+    min-height: calc(100vh - 80px - 450px); /* Subtract header and footer heights */
+}
+
+.auth-container {
+    display: flex;
+    background-color: var(--text-white);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.auth-form-container {
+    flex: 1;
+    padding: 40px;
+}
+
+.auth-form-container h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.auth-subtitle {
+    color: var(--text-light);
+    margin-bottom: 30px;
+}
+
+.auth-form .form-group {
+    margin-bottom: 20px;
+}
+
+.auth-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.input-with-icon {
+    position: relative;
+}
+
+.input-with-icon i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gray-400);
+}
+
+.input-with-icon input {
+    width: 100%;
+    padding: 12px 15px 12px 45px;
+    border: 1px solid var(--gray-300);
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.input-with-icon input:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(185, 74, 59, 0.2);
+    outline: none;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.remember-me input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--accent-color);
+}
+
+.forgot-password {
+    color: var(--accent-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.btn-block {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.social-login {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.social-login p {
+    color: var(--text-light);
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.social-login p::before,
+.social-login p::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 30%;
+    height: 1px;
+    background-color: var(--gray-300);
+}
+
+.social-login p::before {
+    left: 0;
+}
+
+.social-login p::after {
+    right: 0;
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: 1px solid var(--gray-300);
+    background-color: var(--text-white);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+    background-color: var(--gray-100);
+}
+
+.social-btn.google i {
+    color: #DB4437;
+}
+
+.social-btn.facebook i {
+    color: #4267B2;
+}
+
+.auth-footer {
+    margin-top: 30px;
+    text-align: center;
+    color: var(--text-light);
+}
+
+.auth-footer a {
+    color: var(--accent-color);
+    font-weight: 500;
+}
+
+.auth-footer a:hover {
+    text-decoration: underline;
+}
+
+.auth-image {
+    flex: 1;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.auth-image-overlay {
+    background-color: rgba(185, 74, 59, 0.85);
+    color: var(--text-white);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    backdrop-filter: blur(2px);
+    max-width: 400px;
+    box-shadow: var(--shadow-md);
+}
+
+.auth-image-overlay h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+/* Password strength meter */
+.password-strength {
+    margin-top: 10px;
+}
+
+.strength-meter {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 5px;
+}
+
+.strength-meter span {
+    height: 5px;
+    flex: 1;
+    background-color: var(--gray-300);
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.strength-meter span.active:nth-child(1) {
+    background-color: #ff4d4d; /* Weak */
+}
+
+.strength-meter span.active:nth-child(2) {
+    background-color: #ffaa00; /* Fair */
+}
+
+.strength-meter span.active:nth-child(3) {
+    background-color: #2ecc71; /* Good */
+}
+
+.strength-meter span.active:nth-child(4) {
+    background-color: #2ecc71; /* Strong */
+}
+
+/* Interest options */
+.interest-options {
+    display: flex;
+    gap: 20px;
+}
+
+.interest-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.interest-option input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--accent-color);
+}
+
+.terms {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.terms input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-top: 3px;
+    accent-color: var(--accent-color);
+}
+
+.terms a {
+    color: var(--accent-color);
+}
+
+.terms a:hover {
+    text-decoration: underline;
+}
+
+/* Active state for auth buttons in header */
+.auth-buttons .btn.active {
+    background-color: var(--accent-color);
+    color: var(--text-white);
+    border-color: var(--accent-color);
+}
+
+.auth-buttons .btn.btn-outline-primary.active {
+    background-color: transparent;
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+/* Responsive styles for auth pages */
+@media (max-width: 992px) {
+    .auth-container {
+        flex-direction: column;
+    }
+    
+    .auth-image {
+        min-height: 300px;
+        order: -1;
+    }
+}
+
+@media (max-width: 768px) {
+    .auth-section {
+        padding: 40px 0;
+    }
+    
+    .auth-form-container {
+        padding: 30px 20px;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .interest-options {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
