@@ -4,19 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Property Sisters | Leading You Home</title>
-    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Header Section -->
+    <!-- Header -->
     <header>
         <div class="container">
             <div class="logo">
                 <a href="#">
-                    <img src="logo.svg" alt="Property Sisters Logo" height="60">
+                    <img src="339153463_909854913630881_5791634988841450377_n.jpg" alt="Property Sisters Logo" height="60">
+                    <span class="logo-text">Property Sisters</span>
                 </a>
             </div>
             <nav>
@@ -25,13 +26,13 @@
                     <li><a href="#">Buy</a></li>
                     <li><a href="#">Rent</a></li>
                     <li><a href="#">New Listings</a></li>
-                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">About</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
             </nav>
             <div class="auth-buttons">
-                <button class="btn btn-outline">Sign In</button>
-                <button class="btn btn-primary">Register</button>
+                <a href="#" class="btn btn-outline-primary">Sign In</a>
+                <a href="#" class="btn btn-primary">Register</a>
             </div>
             <div class="mobile-menu">
                 <i class="fas fa-bars"></i>
@@ -41,53 +42,47 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Find Your Dream Property</h1>
-                <p>Discover the perfect home that matches your lifestyle and preferences</p>
-                
-                <!-- Search Bar -->
-                <div class="search-container">
-                    <div class="search-tabs">
-                        <button class="search-tab active" data-tab="buy">Buy</button>
-                        <button class="search-tab" data-tab="rent">Rent</button>
+        <div class="hero-content">
+            <h1>Find Your Dream Home</h1>
+            <p>Discover the perfect property that suits your lifestyle with our extensive listings of homes, apartments, and commercial spaces.</p>
+            <div class="search-container">
+                <div class="search-tabs">
+                    <button class="search-tab active">Buy</button>
+                    <button class="search-tab">Rent</button>
+                    <button class="search-tab">New Listings</button>
+                </div>
+                <div class="search-bar">
+                    <div class="search-input">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Enter location, zipcode, or address">
                     </div>
-                    <div class="search-bar">
-                        <div class="search-input">
-                            <i class="fas fa-search"></i>
-                            <input type="text" placeholder="Enter location, ZIP code, or address">
-                        </div>
-                        <div class="search-filters">
-                            <select class="filter">
-                                <option value="">Property Type</option>
-                                <option value="house">House</option>
-                                <option value="apartment">Apartment</option>
-                                <option value="condo">Condo</option>
-                                <option value="commercial">Commercial</option>
-                            </select>
-                            <select class="filter">
-                                <option value="">Price Range</option>
-                                <option value="100000-300000">$100,000 - $300,000</option>
-                                <option value="300000-500000">$300,000 - $500,000</option>
-                                <option value="500000-1000000">$500,000 - $1,000,000</option>
-                                <option value="1000000+">$1,000,000+</option>
-                            </select>
-                            <select class="filter">
-                                <option value="">Bedrooms</option>
-                                <option value="1">1+</option>
-                                <option value="2">2+</option>
-                                <option value="3">3+</option>
-                                <option value="4">4+</option>
-                            </select>
-                            <select class="filter">
-                                <option value="">Bathrooms</option>
-                                <option value="1">1+</option>
-                                <option value="2">2+</option>
-                                <option value="3">3+</option>
-                            </select>
-                        </div>
-                        <button class="btn btn-primary search-btn">Search</button>
+                    <div class="search-filters">
+                        <select class="filter">
+                            <option value="">Property Type</option>
+                            <option value="house">House</option>
+                            <option value="apartment">Apartment</option>
+                            <option value="condo">Condo</option>
+                            <option value="townhouse">Townhouse</option>
+                            <option value="land">Land</option>
+                        </select>
+                        <select class="filter">
+                            <option value="">Price Range</option>
+                            <option value="100000-200000">$100k - $200k</option>
+                            <option value="200000-300000">$200k - $300k</option>
+                            <option value="300000-500000">$300k - $500k</option>
+                            <option value="500000-1000000">$500k - $1M</option>
+                            <option value="1000000+">$1M+</option>
+                        </select>
+                        <select class="filter">
+                            <option value="">Bedrooms</option>
+                            <option value="1">1+</option>
+                            <option value="2">2+</option>
+                            <option value="3">3+</option>
+                            <option value="4">4+</option>
+                            <option value="5">5+</option>
+                        </select>
                     </div>
+                    <button class="btn btn-primary search-btn">Search</button>
                 </div>
             </div>
         </div>
@@ -104,80 +99,60 @@
                 <!-- Property Card 1 -->
                 <div class="property-card">
                     <div class="property-image">
-                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="Modern House">
-                        <span class="property-tag">For Sale</span>
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Luxury Villa">
+                        <div class="property-tag">For Sale</div>
                         <button class="favorite-btn"><i class="far fa-heart"></i></button>
                     </div>
                     <div class="property-details">
                         <div class="price">$750,000</div>
-                        <h3>Modern Family Home</h3>
-                        <p class="location"><i class="fas fa-map-marker-alt"></i> 123 Main St, Anytown, USA</p>
+                        <h3>Luxury Villa with Pool</h3>
+                        <div class="location"><i class="fas fa-map-marker-alt"></i> 123 Luxury Lane, Beverly Hills</div>
                         <div class="property-features">
                             <span><i class="fas fa-bed"></i> 4 Beds</span>
                             <span><i class="fas fa-bath"></i> 3 Baths</span>
-                            <span><i class="fas fa-ruler-combined"></i> 2,500 sqft</span>
+                            <span><i class="fas fa-ruler-combined"></i> 3,500 sqft</span>
                         </div>
-                        <button class="btn btn-outline-primary">View Details</button>
+                        <a href="#" class="btn btn-outline-primary">View Details</a>
                     </div>
                 </div>
                 
                 <!-- Property Card 2 -->
                 <div class="property-card">
                     <div class="property-image">
-                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="Luxury Villa">
-                        <span class="property-tag">For Sale</span>
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Modern Apartment">
+                        <div class="property-tag tag-rent">For Rent</div>
                         <button class="favorite-btn"><i class="far fa-heart"></i></button>
                     </div>
                     <div class="property-details">
-                        <div class="price">$1,250,000</div>
-                        <h3>Luxury Waterfront Villa</h3>
-                        <p class="location"><i class="fas fa-map-marker-alt"></i> 456 Ocean Dr, Beachtown, USA</p>
+                        <div class="price">$2,500/mo</div>
+                        <h3>Modern Downtown Apartment</h3>
+                        <div class="location"><i class="fas fa-map-marker-alt"></i> 456 Urban Ave, Downtown</div>
                         <div class="property-features">
-                            <span><i class="fas fa-bed"></i> 5 Beds</span>
-                            <span><i class="fas fa-bath"></i> 4 Baths</span>
-                            <span><i class="fas fa-ruler-combined"></i> 3,800 sqft</span>
+                            <span><i class="fas fa-bed"></i> 2 Beds</span>
+                            <span><i class="fas fa-bath"></i> 2 Baths</span>
+                            <span><i class="fas fa-ruler-combined"></i> 1,200 sqft</span>
                         </div>
-                        <button class="btn btn-outline-primary">View Details</button>
+                        <a href="#" class="btn btn-outline-primary">View Details</a>
                     </div>
                 </div>
                 
                 <!-- Property Card 3 -->
                 <div class="property-card">
                     <div class="property-image">
-                        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="City Apartment">
-                        <span class="property-tag tag-rent">For Rent</span>
+                        <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Suburban Home">
+                        <div class="property-tag tag-new">New Listing</div>
                         <button class="favorite-btn"><i class="far fa-heart"></i></button>
                     </div>
                     <div class="property-details">
-                        <div class="price">$2,800/mo</div>
-                        <h3>Modern City Apartment</h3>
-                        <p class="location"><i class="fas fa-map-marker-alt"></i> 789 Downtown Ave, Metropolis, USA</p>
-                        <div class="property-features">
-                            <span><i class="fas fa-bed"></i> 2 Beds</span>
-                            <span><i class="fas fa-bath"></i> 2 Baths</span>
-                            <span><i class="fas fa-ruler-combined"></i> 1,200 sqft</span>
-                        </div>
-                        <button class="btn btn-outline-primary">View Details</button>
-                    </div>
-                </div>
-                
-                <!-- Property Card 4 -->
-                <div class="property-card">
-                    <div class="property-image">
-                        <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="Suburban House">
-                        <span class="property-tag">For Sale</span>
-                        <button class="favorite-btn"><i class="far fa-heart"></i></button>
-                    </div>
-                    <div class="property-details">
-                        <div class="price">$525,000</div>
-                        <h3>Cozy Suburban House</h3>
-                        <p class="location"><i class="fas fa-map-marker-alt"></i> 321 Maple St, Suburbia, USA</p>
+                        <div class="price">$450,000</div>
+                        <h3>Charming Suburban Home</h3>
+                        <div class="location"><i class="fas fa-map-marker-alt"></i> 789 Maple St, Suburbia</div>
                         <div class="property-features">
                             <span><i class="fas fa-bed"></i> 3 Beds</span>
                             <span><i class="fas fa-bath"></i> 2 Baths</span>
-                            <span><i class="fas fa-ruler-combined"></i> 1,800 sqft</span>
+                            <span><i class="fas fa-ruler-combined"></i> 2,100 sqft</span>
                         </div>
-                        <button class="btn btn-outline-primary">View Details</button>
+                        <a href="#" class="btn btn-outline-primary">View Details</a>
                     </div>
                 </div>
             </div>
@@ -195,60 +170,60 @@
                 <!-- Property Card 1 -->
                 <div class="property-card">
                     <div class="property-image">
-                        <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="New House">
-                        <span class="property-tag tag-new">New</span>
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Country House">
+                        <div class="property-tag tag-new">New Listing</div>
                         <button class="favorite-btn"><i class="far fa-heart"></i></button>
                     </div>
                     <div class="property-details">
-                        <div class="price">$680,000</div>
-                        <h3>Contemporary Family Home</h3>
-                        <p class="location"><i class="fas fa-map-marker-alt"></i> 555 Pine St, Newtown, USA</p>
+                        <div class="price">$525,000</div>
+                        <h3>Spacious Country House</h3>
+                        <div class="location"><i class="fas fa-map-marker-alt"></i> 101 Country Rd, Greenfield</div>
                         <div class="property-features">
                             <span><i class="fas fa-bed"></i> 4 Beds</span>
                             <span><i class="fas fa-bath"></i> 3 Baths</span>
-                            <span><i class="fas fa-ruler-combined"></i> 2,200 sqft</span>
+                            <span><i class="fas fa-ruler-combined"></i> 2,800 sqft</span>
                         </div>
-                        <button class="btn btn-outline-primary">View Details</button>
+                        <a href="#" class="btn btn-outline-primary">View Details</a>
                     </div>
                 </div>
                 
                 <!-- Property Card 2 -->
                 <div class="property-card">
                     <div class="property-image">
-                        <img src="https://images.unsplash.com/photo-1513584684374-8bab748fbf90?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="Luxury Condo">
-                        <span class="property-tag tag-new">New</span>
+                        <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Modern Townhouse">
+                        <div class="property-tag tag-new">New Listing</div>
                         <button class="favorite-btn"><i class="far fa-heart"></i></button>
                     </div>
                     <div class="property-details">
-                        <div class="price">$495,000</div>
-                        <h3>Downtown Luxury Condo</h3>
-                        <p class="location"><i class="fas fa-map-marker-alt"></i> 777 Skyline Blvd, Cityville, USA</p>
+                        <div class="price">$380,000</div>
+                        <h3>Modern Townhouse</h3>
+                        <div class="location"><i class="fas fa-map-marker-alt"></i> 202 Urban Way, Cityville</div>
                         <div class="property-features">
-                            <span><i class="fas fa-bed"></i> 2 Beds</span>
-                            <span><i class="fas fa-bath"></i> 2 Baths</span>
-                            <span><i class="fas fa-ruler-combined"></i> 1,400 sqft</span>
+                            <span><i class="fas fa-bed"></i> 3 Beds</span>
+                            <span><i class="fas fa-bath"></i> 2.5 Baths</span>
+                            <span><i class="fas fa-ruler-combined"></i> 1,950 sqft</span>
                         </div>
-                        <button class="btn btn-outline-primary">View Details</button>
+                        <a href="#" class="btn btn-outline-primary">View Details</a>
                     </div>
                 </div>
                 
                 <!-- Property Card 3 -->
                 <div class="property-card">
                     <div class="property-image">
-                        <img src="https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="Commercial Space">
-                        <span class="property-tag tag-new">New</span>
+                        <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Waterfront Condo">
+                        <div class="property-tag tag-new">New Listing</div>
                         <button class="favorite-btn"><i class="far fa-heart"></i></button>
                     </div>
                     <div class="property-details">
-                        <div class="price">$875,000</div>
-                        <h3>Commercial Office Space</h3>
-                        <p class="location"><i class="fas fa-map-marker-alt"></i> 999 Business Ave, Commerce, USA</p>
+                        <div class="price">$625,000</div>
+                        <h3>Waterfront Condo</h3>
+                        <div class="location"><i class="fas fa-map-marker-alt"></i> 303 Harbor Dr, Bayview</div>
                         <div class="property-features">
-                            <span><i class="fas fa-ruler-combined"></i> 3,500 sqft</span>
-                            <span><i class="fas fa-car"></i> 8 Parking</span>
-                            <span><i class="fas fa-building"></i> 2 Floors</span>
+                            <span><i class="fas fa-bed"></i> 2 Beds</span>
+                            <span><i class="fas fa-bath"></i> 2 Baths</span>
+                            <span><i class="fas fa-ruler-combined"></i> 1,400 sqft</span>
                         </div>
-                        <button class="btn btn-outline-primary">View Details</button>
+                        <a href="#" class="btn btn-outline-primary">View Details</a>
                     </div>
                 </div>
             </div>
@@ -260,35 +235,43 @@
         <div class="container">
             <div class="section-header">
                 <h2>Our Services</h2>
+                <a href="#" class="view-all">Learn More <i class="fas fa-arrow-right"></i></a>
             </div>
             <div class="services-grid">
+                <!-- Service Card 1 -->
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-home"></i>
                     </div>
-                    <h3>Property Sales</h3>
-                    <p>Find your dream home with our extensive listings of properties for sale across the country.</p>
+                    <h3>Property Management</h3>
+                    <p>We handle all aspects of property management, from tenant screening to maintenance and rent collection.</p>
                 </div>
+                
+                <!-- Service Card 2 -->
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-key"></i>
+                        <i class="fas fa-search"></i>
                     </div>
-                    <h3>Rental Services</h3>
-                    <p>Explore our rental options for both short-term and long-term accommodation needs.</p>
+                    <h3>Property Valuation</h3>
+                    <p>Get an accurate assessment of your property's value with our comprehensive valuation services.</p>
                 </div>
+                
+                <!-- Service Card 3 -->
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3>Property Management</h3>
-                    <p>Let us handle the day-to-day operations of your investment properties for maximum returns.</p>
+                    <h3>Investment Consulting</h3>
+                    <p>Our experts provide guidance on real estate investments to maximize your returns.</p>
                 </div>
+                
+                <!-- Service Card 4 -->
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-hand-holding-usd"></i>
+                        <i class="fas fa-key"></i>
                     </div>
-                    <h3>Investment Advisory</h3>
-                    <p>Get expert advice on real estate investments to grow your portfolio effectively.</p>
+                    <h3>Buying & Selling</h3>
+                    <p>We assist you throughout the buying or selling process to ensure a smooth transaction.</p>
                 </div>
             </div>
         </div>
@@ -298,64 +281,67 @@
     <section class="testimonials">
         <div class="container">
             <div class="section-header">
-                <h2>What Our Clients Say</h2>
+                <h2>Client Testimonials</h2>
             </div>
             <div class="testimonial-slider">
+                <!-- Testimonial 1 -->
                 <div class="testimonial-card">
                     <div class="testimonial-content">
-                        <p>"Property Sisters helped us find our dream home in just two weeks! Their team was professional, responsive, and truly understood our needs."</p>
+                        <p>Property Sisters helped me find my dream home in just two weeks! Their knowledge of the local market and attention to my specific needs made the process incredibly smooth.</p>
                     </div>
                     <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah Johnson">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Sarah Johnson">
                         <div class="author-info">
                             <h4>Sarah Johnson</h4>
                             <p>Homeowner</p>
                         </div>
                     </div>
                 </div>
+                
+                <!-- Testimonial 2 -->
                 <div class="testimonial-card">
                     <div class="testimonial-content">
-                        <p>"As a first-time home buyer, I was nervous about the process. The Property Sisters team guided me through every step with patience and expertise."</p>
+                        <p>As a first-time home buyer, I was nervous about the process. The Property Sisters team guided me every step of the way and found me a perfect starter home within my budget.</p>
                     </div>
                     <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Michael Chen">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen">
                         <div class="author-info">
                             <h4>Michael Chen</h4>
                             <p>First-time Buyer</p>
                         </div>
                     </div>
                 </div>
+                
+                <!-- Testimonial 3 -->
                 <div class="testimonial-card">
                     <div class="testimonial-content">
-                        <p>"Their property management services have been exceptional. My rental properties are in good hands, and I've seen increased returns since working with them."</p>
+                        <p>I've worked with many real estate agencies over the years, but Property Sisters stands out for their professionalism and dedication. They sold my property above asking price in just 10 days!</p>
                     </div>
                     <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Lisa Rodriguez">
+                        <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Emily Rodriguez">
                         <div class="author-info">
-                            <h4>Lisa Rodriguez</h4>
+                            <h4>Emily Rodriguez</h4>
                             <p>Property Investor</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="testimonial-dots">
-                <span class="dot active"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
+                <div class="dot active"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
     <section class="cta">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Ready to Find Your Dream Property?</h2>
-                <p>Join thousands of satisfied clients who found their perfect home with Property Sisters.</p>
-                <div class="cta-buttons">
-                    <button class="btn btn-primary">Get Started</button>
-                    <button class="btn btn-outline-light">Contact Us</button>
-                </div>
+        <div class="cta-content">
+            <h2>Ready to Find Your Dream Home?</h2>
+            <p>Let us help you navigate the real estate market and find the perfect property that meets all your needs and preferences.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary">Get Started</a>
+                <a href="#" class="btn btn-outline-light">Contact Us</a>
             </div>
         </div>
     </section>
@@ -364,12 +350,14 @@
     <footer>
         <div class="container">
             <div class="footer-content">
+                <!-- Column 1: About -->
                 <div class="footer-column">
                     <div class="footer-logo">
-                        <img src="logo.svg" alt="Property Sisters Logo" height="60">
-                        <p class="tagline">LEADING YOU HOME</p>
+                        <img src="339153463_909854913630881_5791634988841450377_n.jpg" alt="Property Sisters Logo">
+                        <span class="logo-text">Property Sisters</span>
+                        <div class="tagline">LEADING YOU HOME</div>
                     </div>
-                    <p>Your trusted partner in finding the perfect property that meets all your requirements and dreams.</p>
+                    <p>Property Sisters is a premier real estate agency dedicated to helping clients find their perfect home or investment property.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -377,6 +365,8 @@
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
+                
+                <!-- Column 2: Quick Links -->
                 <div class="footer-column">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
@@ -384,36 +374,56 @@
                         <li><a href="#">Properties</a></li>
                         <li><a href="#">Services</a></li>
                         <li><a href="#">About Us</a></li>
+                        <li><a href="#">Blog</a></li>
                         <li><a href="#">Contact</a></li>
                     </ul>
                 </div>
+                
+                <!-- Column 3: Services -->
                 <div class="footer-column">
-                    <h3>Property Types</h3>
+                    <h3>Services</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Houses</a></li>
-                        <li><a href="#">Apartments</a></li>
-                        <li><a href="#">Condos</a></li>
-                        <li><a href="#">Commercial</a></li>
-                        <li><a href="#">Land</a></li>
+                        <li><a href="#">Property Management</a></li>
+                        <li><a href="#">Property Valuation</a></li>
+                        <li><a href="#">Investment Consulting</a></li>
+                        <li><a href="#">Buying & Selling</a></li>
+                        <li><a href="#">Market Analysis</a></li>
                     </ul>
                 </div>
+                
+                <!-- Column 4: Contact -->
                 <div class="footer-column">
                     <h3>Contact Us</h3>
                     <ul class="contact-info">
-                        <li><i class="fas fa-map-marker-alt"></i> 123 Real Estate Ave, Suite 100, New York, NY 10001</li>
-                        <li><i class="fas fa-phone"></i> (555) 123-4567</li>
-                        <li><i class="fas fa-envelope"></i> info@propertysisters.com</li>
-                        <li><i class="fas fa-clock"></i> Mon-Fri: 9:00 AM - 6:00 PM</li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Real Estate Blvd, Suite 456<br>New York, NY 10001</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>(123) 456-7890</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@propertysisters.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Mon-Fri: 9:00 AM - 6:00 PM<br>Sat: 10:00 AM - 4:00 PM</span>
+                        </li>
                     </ul>
                 </div>
             </div>
+            
             <div class="footer-bottom">
-                <p>&copy; 2025 Property Sisters. All rights reserved.</p>
-                <ul class="legal-links">
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">Disclaimer</a></li>
-                </ul>
+                <div class="copyright">
+                    &copy; 2025 Property Sisters. All rights reserved.
+                </div>
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Sitemap</a>
+                </div>
             </div>
         </div>
     </footer>

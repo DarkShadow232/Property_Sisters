@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (mobileMenuBtn) {
         mobileMenuBtn.addEventListener('click', function() {
             navLinks.classList.toggle('active');
+            this.querySelector('i').classList.toggle('fa-bars');
+            this.querySelector('i').classList.toggle('fa-times');
         });
     }
     
@@ -21,29 +23,34 @@ document.addEventListener('DOMContentLoaded', function() {
             // Add active class to clicked tab
             this.classList.add('active');
             
-            // You can add more functionality here to change search form based on tab
-            const tabType = this.getAttribute('data-tab');
-            console.log(`Search type changed to: ${tabType}`);
+            // Change search form based on tab
+            const tabText = this.textContent.trim().toLowerCase();
+            console.log(`Search type changed to: ${tabText}`);
             
-            // Example: Change placeholder text based on tab
+            // Change placeholder text based on tab
             const searchInput = document.querySelector('.search-input input');
             if (searchInput) {
-                if (tabType === 'rent') {
+                if (tabText === 'rent') {
                     searchInput.placeholder = 'Where do you want to rent?';
+                } else if (tabText === 'new listings') {
+                    searchInput.placeholder = 'Find new properties in...';
                 } else {
-                    searchInput.placeholder = 'Enter location, ZIP code, or address';
+                    searchInput.placeholder = 'Enter location, zipcode, or address';
                 }
             }
         });
     });
     
-    // Property favorite button functionality
+    // Property favorite button functionality with animation
     const favoriteButtons = document.querySelectorAll('.favorite-btn');
     
     favoriteButtons.forEach(btn => {
         btn.addEventListener('click', function(e) {
             e.preventDefault();
             const icon = this.querySelector('i');
+            
+            // Add animation class
+            this.classList.add('favorite-animation');
             
             // Toggle heart icon
             if (icon.classList.contains('far')) {
@@ -55,32 +62,44 @@ document.addEventListener('DOMContentLoaded', function() {
                 icon.classList.add('far');
                 icon.style.color = ''; // Reset to default
             }
+            
+            // Remove animation class after animation completes
+            setTimeout(() => {
+                this.classList.remove('favorite-animation');
+            }, 500);
         });
     });
     
-    // Simple testimonial slider
+    // Enhanced testimonial slider
     const testimonialDots = document.querySelectorAll('.testimonial-dots .dot');
     const testimonialCards = document.querySelectorAll('.testimonial-card');
+    const testimonialSlider = document.querySelector('.testimonial-slider');
     
+    // Function to update active testimonial
+    function setActiveTestimonial(index) {
+        // Update dots
+        testimonialDots.forEach(d => d.classList.remove('active'));
+        testimonialDots[index].classList.add('active');
+        
+        // Scroll to the selected testimonial
+        if (testimonialSlider && testimonialCards[index]) {
+            const scrollPosition = testimonialCards[index].offsetLeft - testimonialSlider.offsetLeft;
+            
+            testimonialSlider.scrollTo({
+                left: scrollPosition,
+                behavior: 'smooth'
+            });
+        }
+    }
+    
+    // Click event for dots
     testimonialDots.forEach((dot, index) => {
         dot.addEventListener('click', function() {
-            // Remove active class from all dots
-            testimonialDots.forEach(d => d.classList.remove('active'));
+            setActiveTestimonial(index);
+            clearInterval(testimonialInterval); // Stop auto-sliding
             
-            // Add active class to clicked dot
-            this.classList.add('active');
-            
-            // Calculate the scroll position
-            const testimonialSlider = document.querySelector('.testimonial-slider');
-            if (testimonialSlider && testimonialCards[index]) {
-                const scrollPosition = testimonialCards[index].offsetLeft - testimonialSlider.offsetLeft;
-                
-                // Smooth scroll to the selected testimonial
-                testimonialSlider.scrollTo({
-                    left: scrollPosition,
-                    behavior: 'smooth'
-                });
-            }
+            // Restart auto-sliding after user interaction
+            testimonialInterval = setInterval(nextTestimonial, 6000);
         });
     });
     
@@ -89,20 +108,45 @@ document.addEventListener('DOMContentLoaded', function() {
     
     function nextTestimonial() {
         currentTestimonial = (currentTestimonial + 1) % testimonialDots.length;
-        testimonialDots[currentTestimonial].click();
+        setActiveTestimonial(currentTestimonial);
     }
     
-    // Change testimonial every 5 seconds
-    const testimonialInterval = setInterval(nextTestimonial, 5000);
+    // Change testimonial every 6 seconds
+    let testimonialInterval = setInterval(nextTestimonial, 6000);
     
-    // Stop auto-sliding when user interacts with dots
-    testimonialDots.forEach(dot => {
-        dot.addEventListener('click', function() {
-            clearInterval(testimonialInterval);
+    // Handle manual scrolling of testimonials
+    if (testimonialSlider) {
+        testimonialSlider.addEventListener('scroll', function() {
+            // Debounce the scroll event
+            clearTimeout(testimonialSlider.scrollTimeout);
+            testimonialSlider.scrollTimeout = setTimeout(() => {
+                // Find which testimonial is most visible
+                let closestCard = 0;
+                let minDistance = Infinity;
+                
+                testimonialCards.forEach((card, index) => {
+                    const cardPosition = card.offsetLeft - testimonialSlider.offsetLeft;
+                    const distance = Math.abs(testimonialSlider.scrollLeft - cardPosition);
+                    
+                    if (distance < minDistance) {
+                        minDistance = distance;
+                        closestCard = index;
+                    }
+                });
+                
+                // Update the active dot without triggering scroll
+                testimonialDots.forEach(d => d.classList.remove('active'));
+                testimonialDots[closestCard].classList.add('active');
+                currentTestimonial = closestCard;
+                
+                // Restart auto-sliding
+                clearInterval(testimonialInterval);
+                testimonialInterval = setInterval(nextTestimonial, 6000);
+            }, 150);
         });
-    });
+    }
     
-    // Search functionality
+    // Enhanced search functionality
     const searchForm = document.querySelector('.search-bar');
     const searchButton = document.querySelector('.search-btn');
     
@@ -114,26 +158,39 @@ document.addEventListener('DOMContentLoaded', function() {
             const searchInput = document.querySelector('.search-input input').value;
             
             // Get selected filters
-            const propertyType = document.querySelector('select.filter:nth-child(1)').value;
-            const priceRange = document.querySelector('select.filter:nth-child(2)').value;
-            const bedrooms = document.querySelector('select.filter:nth-child(3)').value;
-            const bathrooms = document.querySelector('select.filter:nth-child(4)').value;
-            
-            // Get active search tab
-            const activeTab = document.querySelector('.search-tab.active').getAttribute('data-tab');
-            
-            // Log search parameters (in a real app, this would send a search request)
-            console.log('Search Parameters:', {
-                type: activeTab,
-                location: searchInput,
-                propertyType,
-                priceRange,
-                bedrooms,
-                bathrooms
+            const filters = Array.from(document.querySelectorAll('select.filter')).map(select => {
+                return {
+                    type: select.options[0].text.trim(),
+                    value: select.options[select.selectedIndex].text.trim()
+                };
             });
             
-            // Show a message to the user
-            alert('Search functionality would be implemented in a real application. Check console for search parameters.');
+            // Get active search tab
+            const activeTab = document.querySelector('.search-tab.active').textContent.trim();
+            
+            // Create search parameters object
+            const searchParams = {
+                type: activeTab,
+                location: searchInput,
+                filters: filters
+            };
+            
+            // Log search parameters (in a real app, this would send a search request)
+            console.log('Search Parameters:', searchParams);
+            
+            // Animate the search button
+            searchButton.classList.add('searching');
+            searchButton.textContent = 'Searching...';
+            
+            // Simulate search delay
+            setTimeout(() => {
+                // Reset button
+                searchButton.classList.remove('searching');
+                searchButton.textContent = 'Search';
+                
+                // Show a message to the user
+                alert('Search functionality would be implemented in a real application. Check console for search parameters.');
+            }, 1500);
         });
     }
     
@@ -150,18 +207,32 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (targetElement) {
                 window.scrollTo({
-                    top: targetElement.offsetTop - 100,
+                    top: targetElement.offsetTop - 80,
                     behavior: 'smooth'
                 });
             }
         });
     });
     
-    // Add animation on scroll
+    // Enhanced animation on scroll with staggered effect
     const animateOnScroll = function() {
-        const elements = document.querySelectorAll('.property-card, .service-card, .testimonial-card');
+        const elements = document.querySelectorAll('.property-card, .service-card');
         
-        elements.forEach(element => {
+        elements.forEach((element, index) => {
+            const elementPosition = element.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            
+            if (elementPosition < windowHeight - 50) {
+                // Add staggered delay based on index
+                setTimeout(() => {
+                    element.classList.add('visible');
+                }, index * 100); // 100ms delay between each item
+            }
+        });
+        
+        // Animate other elements without stagger
+        const otherElements = document.querySelectorAll('.section-header, .cta-content, .footer-column');
+        otherElements.forEach(element => {
             const elementPosition = element.getBoundingClientRect().top;
             const windowHeight = window.innerHeight;
             
@@ -172,44 +243,110 @@ document.addEventListener('DOMContentLoaded', function() {
     };
     
     // Initial check on page load
-    animateOnScroll();
+    setTimeout(animateOnScroll, 300);
     
     // Check on scroll
     window.addEventListener('scroll', animateOnScroll);
     
-    // Add CSS for animation
+    // Add CSS for animations
     const style = document.createElement('style');
     style.textContent = `
-        .property-card, .service-card, .testimonial-card {
+        /* Base animations */
+        .property-card, .service-card, .section-header, .cta-content, .footer-column {
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
         }
         
-        .property-card.visible, .service-card.visible, .testimonial-card.visible {
+        .property-card.visible, .service-card.visible, .section-header.visible, .cta-content.visible, .footer-column.visible {
             opacity: 1;
             transform: translateY(0);
+        }
+        
+        /* Favorite button animation */
+        .favorite-animation {
+            animation: pulse 0.5s ease;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        
+        /* Search button animation */
+        .search-btn.searching {
+            background-color: var(--primary-color);
+            pointer-events: none;
+        }
+        
+        /* Mobile menu styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--text-white);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: var(--shadow-md);
+                z-index: 99;
+                text-align: center;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+            }
+            
+            .auth-buttons {
+                display: none;
+            }
+            
+            .nav-links.active + .auth-buttons {
+                display: flex;
+                justify-content: center;
+                margin-top: 15px;
+            }
         }
     `;
     document.head.appendChild(style);
     
-    // Add mobile menu CSS
-    const mobileStyle = document.createElement('style');
-    mobileStyle.textContent = `
-        @media (max-width: 768px) {
-            .nav-links.active {
-                display: flex;
-                flex-direction: column;
-                position: absolute;
-                top: 70px;
-                left: 0;
-                right: 0;
-                background-color: white;
-                padding: 20px;
-                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-                z-index: 100;
+    // Parallax effect for hero section
+    const hero = document.querySelector('.hero');
+    if (hero) {
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.scrollY;
+            if (scrollPosition < 600) {
+                hero.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
             }
-        }
-    `;
-    document.head.appendChild(mobileStyle);
+        });
+    }
+    
+    // Property image hover effect
+    const propertyImages = document.querySelectorAll('.property-image');
+    propertyImages.forEach(image => {
+        image.addEventListener('mouseenter', function() {
+            this.querySelector('img').style.transform = 'scale(1.05)';
+        });
+        
+        image.addEventListener('mouseleave', function() {
+            this.querySelector('img').style.transform = 'scale(1)';
+        });
+    });
+    
+    // Initialize any tooltips or popovers
+    const initTooltips = function() {
+        const tooltipElements = document.querySelectorAll('[data-tooltip]');
+        tooltipElements.forEach(element => {
+            element.setAttribute('title', element.getAttribute('data-tooltip'));
+        });
+    };
+    
+    initTooltips();
 });
